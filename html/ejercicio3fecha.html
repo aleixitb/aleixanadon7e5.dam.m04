@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+    <script src="../js/ejercicio3fecha.js"></script>
+    <link rel="shortcut icon" href="../assets/js.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>M04 - Lenguaje de Marcas: 2.04 - Javascript</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="ejercicio1.html">Ejercicio 1</a>
+                </li>
+                <li>
+                    <a href="ejercicio1strings.html">Ejercicio 1: Strings</a>
+                </li>
+                <li>
+                    <a href="ejercicio2codigosecreto.html">Ejercicio 2: Código Secreto</a>
+                </li>
+                <li>
+                    <a href="ejercicio3fecha.html">Ejercicio 3: Fechas</a>
+                </li>
+                <li>
+                    <a href="ejercicio4objetos.html">Ejercicio 4: Objetos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Ejercicio 3: Fechas</h2>
+        <ol>
+            <li>
+                <article>
+                    <p>Obtén la fecha de hoy y sacala por pantalla.</p>
+                    <p>
+                        <label for="data">Data: </label>
+                        <span id="data">dd/mm/yyyy</span>
+                    </p>
+                    <p>
+                        <input type="submit" value="Obtenir la data d'avui" onclick="obtenirData()">
+                    </p>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <p>Según el día de la semana y la hora actual, informa por pantalla si estás o no en clase de M04.</p>
+                    <p>
+                        <input type="submit" value="Estem a classe de M04?" onclick="hiHaClasse()">
+                    </p>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <p>Desde hoy calcula cuánto tiempo falta para tu cumpleaños.</p>
+                    <ol type="a">
+                        <li>
+                            <p>
+                                <label for="seconds">En segundos: </label> 
+                                <span id="seconds"></span>
+                            </p>
+                            <p>
+                                <input type="submit" value="Quant de temps queda en segons" onclick="showSecondsTillBirthday(secondsTillBirthday)">
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <label for="minutes">En minutos: </label>
+                                <span id="minutes"></span>
+                            </p>
+                            <p>
+                                <input type="submit" value="Quant de temps queda en minuts" onclick="showMinutesTillBirthday(minutesTillBirthday)">
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <label for="hours">En horas: </label>
+                                <span id="hours"></span>
+                            </p>
+                            <p>
+                                <input type="submit" value="Quant de temps queda en hores" onclick="showHoursTillBirthday(daysTillBirthday)">
+                            </p>
+                        </li>
+                        <li>
+                            <label for="days">En días: </label>
+                            <span id="days"></span>
+                            <p>
+                                <input type="submit" value="Quant de temps queda en dies" onclick="showDaysTillBirthday(daysTillBirthday)">
+                            </p>
+                        </li>
+                    </ol>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <p>
+                        Mira si el día de la Mercé (24/09/20XX) cae en domingo o sábado los próximos años. Informa con 20XX-dia, cuando el día no sea ni domingo ni sábado, comprueba hasta 2060.
+                    </p>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <p>Crea un reloj con horas, minutos y segundos que haga “tick” cada segundo. El formato de salida cada segundo será: 13:51:58</p>
+                </article>
+            </li>
+        </ol>
+    </main>
+</body>
+</html>
