@@ -1,3 +1,4 @@
+// OBTENIR LA DATA D'AVUI
 function obtenirData() {
 
     let today = new Date()
@@ -21,10 +22,10 @@ function obtenirData() {
     } else if (contingut == valorperdefecte) {
 
         document.getElementById('data').innerHTML = data
-    
     }
 }
 
+// HI HA CLASSE DE M04 ARA MATEIX?
 function hiHaClasse() {
 
     let daysOfWeek = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
@@ -199,5 +200,43 @@ function showDaysTillBirthday(daysTillBirthday) {
         document.getElementById('days').innerHTML = data;
     } else if (content != valorperdefecte) {
         document.getElementById('days').innerHTML = valorperdefecte;
+    }
+}
+
+function diaDeLaMerce() {
+
+    let daysOfWeek = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+    let countDaySS = [];
+    let countDayNotSS = [];
+    let dayOfWeek;
+
+    for (let i = 2022; i < 2060; i++) {
+
+        let day = new Date(i, 09, 24);
+        dayOfWeek = day.getDay();
+        
+        if (dayOfWeek == 0 || dayOfWeek == 6) {
+            countDaySS.push([day.getFullYear(), daysOfWeek[day.getDay()]]);
+        } else if (dayOfWeek != 0 || dayOfWeek != 6) {
+            countDayNotSS.push([day.getFullYear(), daysOfWeek[day.getDay()]]);
+        }
+    }
+
+    console.log(countDaySS);
+    console.log(countDayNotSS);
+
+    let daySS = countDaySS;
+    let dayNotSS = countDayNotSS;
+
+    console.log(daySS);
+    console.log(dayNotSS);
+
+    // SOLO FALTA QUE PUEDA ITERAR PARA PORNER UN FORMATO MÁS CUCO Y NO ENGANCHAR LA LISTA A LO FEO
+    for (let i = 1; i < daySS; i++) {
+        document.getElementById('daySS').innerHTML += " " + daySS[i]; 
+    }
+
+    for (let i = 1; i < dayNotSS; i++) {
+        document.getElementById('dayNotSS').innerHTML += " " + dayNotSS[i]; 
     }
 }
