@@ -100,17 +100,35 @@
                     <p>
                         Mira si el día de la Mercé (24/09/20XX) cae en domingo o sábado los próximos años. Informa con 20XX-dia, cuando el día no sea ni domingo ni sábado, comprueba hasta 2060.
                     </p>
-                    <p>
-                        <label for="daySS">Dies que cauen en Dissabte o Diumenge: </label>
+                    <ol>
+                        <li>
+                            <p>
+                                <label for="daySS">Dies que cauen en Dissabte o Diumenge: </label>
+                            </p>
+                            <p>
+                                <label for="countDaySS"></label>
+                                <span id="countDaySS"></span>
+                            </p>
+                        </li>
+
                         <span id="daySS"></span>
-                    </p>
-                    <p>
-                        <label for="dayNotSS">Diues que no cauen en Dissabte o Diumenge: </label>
+
+                        <li>
+                            <p>
+                                <label for="dayNotSS">Diues que no cauen en Dissabte o Diumenge: </label>
+                            </p>
+                            <p>
+                                <label for="countDayNotSS"></label>
+                                <span id="countDayNotSS"></span>
+                            </p>
+                        </li>
+                        
                         <span id="dayNotSS"></span>
-                    </p>
-                    <p>
-                        <input type="submit" value="Mirar" onclick="diaDeLaMerce()">
-                    </p>
+
+                        <p>
+                            <input type="submit" value="Mirar" id="merceButton" onclick="diaDeLaMerce()">
+                        </p>
+                    </ol>
                 </article>
             </li>
             <li>

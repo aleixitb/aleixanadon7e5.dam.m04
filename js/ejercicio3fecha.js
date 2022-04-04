@@ -205,38 +205,60 @@ function showDaysTillBirthday(daysTillBirthday) {
 
 function diaDeLaMerce() {
 
-    let daysOfWeek = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
-    let countDaySS = [];
-    let countDayNotSS = [];
-    let dayOfWeek;
+    let daysOfWeek = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous","Divendres", "Dissabte"];
+    
+    let listDaysSS = [];
+    let listDaysNotSS = [];
+    
+    let countDaysSS = 0;
+    let countDaysNotSS = 0;
 
+    let dayOfWeek;
     for (let i = 2022; i < 2060; i++) {
 
         let day = new Date(i, 09, 24);
         dayOfWeek = day.getDay();
-        
+
         if (dayOfWeek == 0 || dayOfWeek == 6) {
-            countDaySS.push([day.getFullYear(), daysOfWeek[day.getDay()]]);
+            listDaysSS.push([day.getFullYear() + " - " + daysOfWeek[day.getDay()]]);
+            countDaysSS++
         } else if (dayOfWeek != 0 || dayOfWeek != 6) {
-            countDayNotSS.push([day.getFullYear(), daysOfWeek[day.getDay()]]);
+            listDaysNotSS.push([day.getFullYear() + " - " + daysOfWeek[day.getDay()]]);
+            countDaysNotSS++
         }
     }
 
-    console.log(countDaySS);
-    console.log(countDayNotSS);
+    //console.log(listDaysSS);
+    //console.log(listDaysNotSS);
 
-    let daySS = countDaySS;
-    let dayNotSS = countDayNotSS;
+    let daySS = listDaysSS;
+    let dayNotSS = listDaysNotSS;
 
-    console.log(daySS);
-    console.log(dayNotSS);
+    //console.log("daySS: " + daySS);
+    //console.log("dayNotSS: " + dayNotSS);
 
-    // SOLO FALTA QUE PUEDA ITERAR PARA PORNER UN FORMATO MÁS CUCO Y NO ENGANCHAR LA LISTA A LO FEO
-    for (let i = 1; i < daySS; i++) {
-        document.getElementById('daySS').innerHTML += " " + daySS[i]; 
-    }
+    let content = document.getElementById('countDaySS').innerHTML;
+    let data = countDaysSS;
+    let valorperdefecte = ""; 
 
-    for (let i = 1; i < dayNotSS; i++) {
-        document.getElementById('dayNotSS').innerHTML += " " + dayNotSS[i]; 
-    }
+    if (content == "") {
+
+        document.getElementById('countDaySS').innerHTML = countDaysSS;
+        document.getElementById('daySS').innerHTML = daySS; 
+
+        document.getElementById('countDayNotSS').innerHTML = countDaysNotSS;
+        document.getElementById('dayNotSS').innerHTML = dayNotSS;
+
+        document.getElementById('merceButton').value = "Ocultar";
+
+    } else if (content == data) {
+
+        document.getElementById('countDaySS').innerHTML = valorperdefecte;
+        document.getElementById('daySS').innerHTML = valorperdefecte; 
+
+        document.getElementById('countDayNotSS').innerHTML = valorperdefecte;
+        document.getElementById('dayNotSS').innerHTML = valorperdefecte;
+
+        document.getElementById('merceButton').value = "Mirar";
+    }    
 }
