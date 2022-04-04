@@ -104,9 +104,6 @@
                         <li>
                             <p>
                                 <label for="daySS">Dies que cauen en Dissabte o Diumenge: </label>
-                            </p>
-                            <p>
-                                <label for="countDaySS"></label>
                                 <span id="countDaySS"></span>
                             </p>
                         </li>
@@ -116,9 +113,6 @@
                         <li>
                             <p>
                                 <label for="dayNotSS">Diues que no cauen en Dissabte o Diumenge: </label>
-                            </p>
-                            <p>
-                                <label for="countDayNotSS"></label>
                                 <span id="countDayNotSS"></span>
                             </p>
                         </li>
@@ -133,7 +127,16 @@
             </li>
             <li>
                 <article>
-                    <p>Crea un reloj con horas, minutos y segundos que haga “tick” cada segundo. El formato de salida cada segundo será: 13:51:58</p>
+                    <p>
+                        Crea un reloj con horas, minutos y segundos que haga “tick” cada segundo. El formato de salida cada segundo será: 13:51:58
+                    </p>
+                    <p>
+                        <label for="clock">Rellotge: </label>
+                        <span id="clock"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="Mostrar rellotge" id="clockButton" onclick="showTime()">
+                    </p>
                 </article>
             </li>
         </ol>

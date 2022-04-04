@@ -238,15 +238,15 @@ function diaDeLaMerce() {
     //console.log("dayNotSS: " + dayNotSS);
 
     let content = document.getElementById('countDaySS').innerHTML;
-    let data = countDaysSS;
+    let data = countDaysSS + " dies";
     let valorperdefecte = ""; 
 
     if (content == "") {
 
-        document.getElementById('countDaySS').innerHTML = countDaysSS;
+        document.getElementById('countDaySS').innerHTML = countDaysSS + " dies";
         document.getElementById('daySS').innerHTML = daySS; 
 
-        document.getElementById('countDayNotSS').innerHTML = countDaysNotSS;
+        document.getElementById('countDayNotSS').innerHTML = countDaysNotSS + " dies";
         document.getElementById('dayNotSS').innerHTML = dayNotSS;
 
         document.getElementById('merceButton').value = "Ocultar";
@@ -262,3 +262,26 @@ function diaDeLaMerce() {
         document.getElementById('merceButton').value = "Mirar";
     }    
 }
+
+function showTime() {
+    let date = new Date();
+    let h = String(date.getHours()).padStart(2, '0');
+    let m = String(date.getMinutes()).padStart(2, '0');
+    let s = String(date.getSeconds()).padStart(2, '0');
+
+    document.getElementById('clock').innerHTML = h + ':' + m + ':' + s;
+
+    // let content = document.getElementById('clock').innerHTML;
+ 
+    // if (content == "") {
+
+    //     document.getElementById('clock').innerHTML = h + ':' + m + ':' + s;
+
+    // } else if (content != "") {
+
+    //     document.getElementById('clock').innerHTML = "";
+    // }
+
+    setInterval(function(){showTime()}, 1000);
+}
+
