@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objetos</title>
+    <link rel="shortcut icon" href="../assets/js.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -37,9 +38,29 @@
                 <ol type="a">
                     <li>
                         <p>Listar las propiedades del objeto.</p>
+                        <p>
+                            <label for="name">Nombre: </label>
+                            <input type="text" id="name" value="Nombre">
+                        </p>
+                        <p>
+                            <label for="grade">Curso</label>
+                            <input type="text" id="grade" value="DAMi">
+                        </p>
+                        <p>
+                            <label for="age">Edad</label>
+                            <input type="number" id="age" value="19">
+                        </p>
+                        <p id="student"></p>
+                        <button id="createObject">Crear Objeto</button>
+                        <button id="showObject">Mostrar l'objecte</button>
                     </li>
                     <li>
                         <p>Elimina una propiedad al gusto y vuelve a listar las propiedades del objeto.</p>
+                        <p>
+                            <div id="deleteName"></div>
+                            <div id="deleteGrade"></div>
+                            <div id="deleteAge"></div>
+                        </p>
                     </li>
                     <li>
                         <p>Añade dos propiedades (fecha_nacimiento, apellidos) y vuelve a listarlo.</p>
@@ -57,5 +78,6 @@
             </li>
         </ol>
     </main>
+    <script src="../js/ejercicio4objetos.js"></script>
 </body>
 </html>
