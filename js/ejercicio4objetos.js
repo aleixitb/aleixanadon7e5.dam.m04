@@ -1,66 +1,65 @@
-// ELEMENTO BOTÓN
-var buttonDisplayObject = document.getElementById('showObject');
+class Student{
 
-// AÑADIR EVENTOS AL BOTÓN
-buttonDisplayObject.addEventListener("click", displayObject);
-
-// CREA EL OBJETO
-function createObject() {
-
-    let name = document.getElementById('name').value;
-    let grade = document.getElementById('grade').value;
-    let age = document.getElementById('age').value;
-
-    let student = {
-        name: name,
-        grade: grade,
-        age: age
+    constructor(name, grade, age) {
+        this.name = name;
+        this.grade = grade;
+        this.age = age;
     }
 
-    return student;
+    makeString() {
+        return `Student {
+                    <br>&emsp;&emsp;name: ${this.name},
+                    <br>&emsp;&emsp;grade: ${this.grade},
+                    <br>&emsp;&emsp;age: ${this.age}    
+                <br>}`;
+    }
 }
 
-// MOSTRA L'OBJECTE CREAT
-function displayObject() {
+var buttonCreate = document.getElementById('create');
 
-    let student = createObject();
+// CREAR UNA LISTA PARA ALMACENAR EL OBJETO QUE CREAS UNA SOLA VEZ
+var list = [];
 
-    let content = `Student {<br>&emsp;name: ${student.name},<br>&emsp;grade: ${student.grade},<br>&emsp;age: ${student.age}<br>}`;
+// CREAS EL OBJETO
+buttonCreate.onclick = function createObject() {
 
-    let element = document.getElementById('student')
+    let v_name = document.getElementById('name').value;
+    let v_grade = document.getElementById('grade').value;
+    let v_age = document.getElementById('age').value;
 
-    if (element.innerHTML == "") {
+    var student = new Student();
 
-        element.innerHTML = content;
-        buttonDisplayObject.innerHTML = "Ocultar objecte";
+    student.name = v_name;
+    student.grade = v_grade;
+    student.age = v_age;
 
-        for (i in student) {
-            delete student[i];
+    // AQUÍ SE ALMACENA
+    list[0] = student;
+
+    console.log(list);
+}
+
+var buttonShow = document.getElementById('show');
+
+// Y AQUÍ FINALMENTE SE PUEDE MOSTRAR DEFINIDO POR PANTALLA EN LA WEB
+buttonShow.onclick = function showObject(student) {
+
+    let element = document.getElementById('student');
+    let content = element.innerHTML;
+    
+    if (content == "") {
+        
+        try {
+
+            element.innerHTML = list[0].makeString();
+            document.getElementById('show').innerHTML = "Ocultar objecte";
+
+        } catch (e) {
+            
         }
 
-    } else if (element.innerHTML != "") {
+    } else if (content != "") {
 
         element.innerHTML = "";
-        buttonDisplayObject.innerHTML = "Mostrar objecte";
     }
 }
-
-// BOTONS DE BORRAR
-var deleteName = document.getElementById('deleteName');
-var deleteGrade = document.getElementById('deleteGrade');
-var deleteAge = document.getElementById('deleteAge');
-
-var objToDelete = document.getElementById('objToDelete');
-
-window.addEventListener("load", showStudent());
-
-function showStudent() {
-    let student = createObject()
-    objToDelete.innerHTML = `Student {<br>&emsp;name: ${student.name},<br>&emsp;grade: ${student.grade},<br>&emsp;age: ${student.age}<br>}`;
-}
-
-deleteName.addEventListener("click", function(){
-
-    delete student.name;
-    showStudent();
-});
