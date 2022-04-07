@@ -1,4 +1,4 @@
-var dateSpan = document.getElementById('date');
+var dateInput = document.getElementById('date');
 var showDateButton = document.getElementById('showDate');
 
 showDateButton.addEventListener("click", function() {
@@ -40,10 +40,66 @@ function getDate() {
 
 function showDate() {
     
-    dateSpan.innerHTML = getDate();
+    dateInput.innerHTML = getDate();
 }
 
 function hideDate() {
 
-    dateSpan.innerHTML = "";
+    dateInput.innerHTML = "";
+}
+
+var watchInput = document.getElementById('watch');
+var showWatchButton = document.getElementById('showWatch');
+
+showWatchButton.addEventListener("click", function() {
+
+    let button = showWatchButton;
+
+    if (button.innerHTML == "Mostrar reloj") {
+
+        showWatch();
+        button.innerHTML = "Ocultar reloj";
+
+    } else if (button.innerHTML == "Ocultar reloj") {
+
+        hideWatch();
+        button.innerHTML = "Mostrar reloj";
+
+    }
+});
+
+var myInterval;
+
+function getTime() {
+
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+
+    return `${h}:${m}:${s}`
+}
+
+function showWatch() {
+
+    watchInput.style.display = "";
+    watchInput.innerHTML = getTime();
+
+    start(true);
+}
+
+function hideWatch() {
+
+    start(false);
+    watchInput.style.display = "none";
+}
+
+function start(bool) {
+
+    if (bool == true) {
+        myInterval = setTimeout(showWatch, 1000); 
+    } else {
+        myInterval = clearInterval(myInterval);
+    }
 }
