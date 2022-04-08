@@ -83,16 +83,14 @@ function getTime() {
 
 function showWatch() {
 
-    watchInput.style.display = "";
-    watchInput.innerHTML = getTime();
-
     start(true);
+    watchInput.innerHTML = getTime();
 }
 
 function hideWatch() {
 
     start(false);
-    watchInput.style.display = "none";
+    watchInput.innerHTML = "";
 }
 
 function start(bool) {
@@ -101,5 +99,90 @@ function start(bool) {
         myInterval = setTimeout(showWatch, 1000); 
     } else {
         myInterval = clearInterval(myInterval);
+    }
+}
+
+var showIfClassButton = document.getElementById('showIfClass');
+var showClass = document.getElementById('class');
+
+showIfClassButton.addEventListener('click', function() {
+
+    let button = showIfClassButton;
+
+    if (button.innerHTML == "Mostrar") {
+
+        showIfClass();
+        button.innerHTML = "Ocultar";
+        
+
+    } else if (button.innerHTML == "Ocultar") {
+
+        showClass.innerHTML = ""
+        button.innerHTML = "Mostrar";
+    }
+});
+
+// `Són les ${h}:${m} i tens classe de M04.`
+
+function theresClass() {
+
+    let now = new Date();
+    
+    let d = now.getDay()
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    if (d == 1) {
+        if (h == 11) {
+            if (m >= 15 && m <= 59) {
+                return true
+            } else {
+                return false
+            }
+        } else if (h == 12) {
+            if (m >= 0 && m <= 10) {
+                return true
+            } else {
+                return false
+            }
+        }
+    } else if (d == 5) {
+        if (h == 8) {
+            if (m >= 0 && m <= 59) {
+                return true
+            } else {
+                return false
+            }
+        } else if (h == 9) {
+            if (m >= 0 && m <= 50) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    } 
+}
+
+function showIfClass() {
+    
+    let now = new Date();
+    
+    let d = now.getDay();
+
+    let h = now.getHours();
+    let m = now.getMinutes;
+    let s = now.getSeconds();
+
+    if (theresClass()) {
+
+        showClass.innerHTML = `Són les ${getTime()} i estàs a classe de M04.`;
+
+    } else {
+
+        showClass.innerHTML = `Ara mateix no tens M04.`;
     }
 }
