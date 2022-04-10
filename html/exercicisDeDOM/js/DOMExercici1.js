@@ -18,12 +18,9 @@ function toggle() {
 }
 
 function applyStyle() {
-    p.style.fontSize = "200px";
-    p.style.color = "white";
-    document.body.style.backgroundColor = "black";
+    p.style.font = "italic bold 200px arial,serif";
 }
 
 function removeStyle() {
     p.style = "none";
-    document.body.style = "none";
 }
