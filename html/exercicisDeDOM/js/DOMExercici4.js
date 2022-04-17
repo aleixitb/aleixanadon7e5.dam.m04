@@ -26,7 +26,7 @@ function toggle() {
 function obtenirAtributs() {
 
     Array.from(elementAttributes).forEach(element => {
-        console.log(element.indexOf)
+        console.log(`${element}: ${linkElement.getAttribute(element)}`)
     })
 }
 
