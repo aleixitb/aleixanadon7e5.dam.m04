@@ -35,8 +35,8 @@ function insertCellBeggining() {
 
 function deleteCellBeggining() {
 
-    let row = document.querySelector("#table:first-child");
-    table.deleteRow(0);
+    let row = document.querySelector("#table > tr:first-child");
+    table.deleteRow(row);
 }
 
 function toggleEnd() {
@@ -68,6 +68,6 @@ function insertCellEnd() {
 
 function deleteCellEnd() {
 
-    let row = document.querySelector("#table:last-child");
-    table.deleteRow(-1);
+    let rowCount = table.rows.length;
+    table.deleteRow(rowCount - 1);
 }
