@@ -6,17 +6,20 @@ buttonChangeColor.addEventListener("click", toggle);
 function toggle() {
 
     let button = buttonChangeColor;
+    let text = "";
 
     if (button.innerHTML == "Canviar color") {
 
         changeColor();
-        button.innerHTML = "Canviar al color original";
+        text = "Canviar al color original";
 
     } else if (button.innerHTML == "Canviar al color original") {
 
         setDefaultColor();
-        button.innerHTML = "Canviar color"
+        text = "Canviar color"
     }
+    
+    button.innerHTML = text;
 }
 
 function changeColor() {
