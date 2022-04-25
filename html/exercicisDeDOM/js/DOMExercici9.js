@@ -1,27 +1,43 @@
 var alertValuesButton = document.getElementById("alertValues");
+var select = document.querySelector("select");
 
-function getOption() {
+function getOptions() {
 
-    let opt;
+    let listOfOptions = [];
 
     for ( let i = 0, len = select.options.length; i < len; i++ ) {
 
-        opt = select.options[i];
-
-        if ( opt.selected === true ) {
-            
-            break;
-        }
+        listOfOptions.push(select.options[i]);
     }
 
-    return opt;
+    return listOfOptions;
 }
 
 function alertOption() {
 
-    let opt = getOption();
+    // ARRAY
+    let listOfOptions = getOptions();
 
-    alert(opt);
+    let str = "";
+
+    let optAttributes;
+
+    for (let i = 0; i < listOfOptions.length; i++) {
+
+        optAttributes = listOfOptions[i].getAttributeNames();
+
+        str += `${listOfOptions[i].getAttributeNames()}: `
+
+        for (let j = 0; j < optAttributes.length; j++) {
+
+            str += `${listOfOptions[i].getAttribute(optAttributes[j])}`;
+        }
+
+        str += "\n"
+    }
+
+    alert(str);
+
 }
 
-alertValuesButton.addEventListener("click", alertOption)
+alertValuesButton.addEventListener("click", alertOption);
