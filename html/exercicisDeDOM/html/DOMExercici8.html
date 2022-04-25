@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 8</title>
+    <link rel="shortcut icon" href="../../../assets/js.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>M04 - Lenguaje de Marcas: 2.04 - Javascript</h1>
+        <nav>
+            <ul>
+                <li><a href="../../../index.html">Home</a></li>
+                <li><a href="../../masEjerciciosDeDOM.html">Más ejercicios de DOM - JS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>
+            Más ejercicios de DOM - JS
+        </h2>
+        <h3>
+            8. Crea un html amb un dropdownlist (amb diverses opcions) i un botó. Enllaça’l amb
+            un javascript i fes que el botó elimini el valor seleccionat del dropdownlist.
+        </h3>
+        <fieldset>
+            <legend>Flowers</legend>
+            <select name="flowers" id="flowers" value="">
+                <option value="none" selected disabled hidden></option>
+                <option value="petunia">Petunia</option>
+                <option value="tulip">Tulip</option>
+                <option value="daisy">Daisy</option>
+                <option value="rose">Rose</option>
+            </select>
+            <button id="deleteFromList">Delete from list</button>
+            <span id="log"></span>
+        </fieldset>
+    </main>
+    <script src="../js/DOMExercici8.js"></script>
+</body>
+</html>
