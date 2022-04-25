@@ -29,6 +29,7 @@ function createTable() {
             cell.setAttribute("id", k);
             k++
         }
+
         tableBody.appendChild(row);
     }
 
@@ -38,9 +39,9 @@ function createTable() {
 
 createTable();
 
+let editingTd;
+
 table.onclick = function(event) {
-    
-    let editingTd;
 
     let target = event.target.closest('.edit-cancel, .edit-ok, td');
 
