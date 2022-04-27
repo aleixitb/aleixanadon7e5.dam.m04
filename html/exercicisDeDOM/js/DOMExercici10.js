@@ -1,19 +1,20 @@
 class Cylinder {
 
+    radius;
+    height;
+
     constructor(radius, height) {
-        this.radius = radius
-        this.height = height
+        this.radius = radius;
+        this.height = height;
     }
 
-    area() {
+    calculateArea() {
         const pi = Math.PI
-
         return (2 * pi * (this.radius**2) + (2 * pi + this.radius * this.height));
     }
 }
 
 var form = document.querySelector("form");
-var button = document.getElementById("btn");
 
 function noReload(e) {
 
@@ -31,11 +32,15 @@ function makeACylinder() {
 
             inputId = input.getAttribute("id");
 
+            /**
+             * Every parameter of the constructor is setted here in this forEach by
+             * taking every attribute of the constructor and then we get the value
+             * from the web using the getAttribute method.
+            */
+
             cylinder[inputId] = input.getAttribute("value");
         }   
     })
-
-    console.log("area: " + cylinder.area());
 
     return cylinder
 }
@@ -47,4 +52,4 @@ function submitAction(e) {
     console.log(cylinder);
 }
 
-btn.addEventListener("click", submitAction)
+form.addEventListener("submit", submitAction)
