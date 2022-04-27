@@ -50,7 +50,8 @@ function submitAction(e) {
 
     noReload(e);
     let cylinder = makeACylinder();
-    console.log(cylinder.area);
+    let area = cylinder.area;
+    console.log(area);
 }
 
 form.addEventListener("submit", submitAction)
