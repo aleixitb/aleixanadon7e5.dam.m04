@@ -1,14 +1,15 @@
 class Cylinder {
 
-    radius;
-    height;
-
     constructor(radius, height) {
         this.radius = radius;
         this.height = height;
     }
 
-    calculateArea() {
+    get area() {
+        return this.calcArea();
+    }
+
+    calcArea() {
         const pi = Math.PI
         return (2 * pi * (this.radius**2) + (2 * pi + this.radius * this.height));
     }
@@ -49,7 +50,7 @@ function submitAction(e) {
 
     noReload(e);
     let cylinder = makeACylinder();
-    console.log(cylinder);
+    console.log(cylinder.area);
 }
 
 form.addEventListener("submit", submitAction)
