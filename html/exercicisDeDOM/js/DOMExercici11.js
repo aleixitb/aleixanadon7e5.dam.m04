@@ -1,4 +1,4 @@
-var strongs = document.querySelectorAll("strong, a");
+var strongs = document.querySelectorAll("strong, main a");
 
 function resaltar() {
 

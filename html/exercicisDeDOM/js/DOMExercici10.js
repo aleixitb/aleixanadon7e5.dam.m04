@@ -1,3 +1,8 @@
+/**
+ * I have tried to implement the method area like that in order to try to update it
+ * Because when I submit again, the value of the area does not change
+ */
+
 class Cylinder {
 
     constructor(radius, height) {
@@ -24,7 +29,7 @@ function noReload(e) {
 
 function makeACylinder() {
     
-    let cylinder = new Cylinder()
+    let cylinder = new Cylinder();
     let inputId;
 
     Array.from(form.elements).forEach( input => {
@@ -50,8 +55,7 @@ function submitAction(e) {
 
     noReload(e);
     let cylinder = makeACylinder();
-    let area = cylinder.area;
-    console.log(area);
+    document.getElementById("result").innerHTML = `area = ${cylinder.area}`;
 }
 
 form.addEventListener("submit", submitAction)
