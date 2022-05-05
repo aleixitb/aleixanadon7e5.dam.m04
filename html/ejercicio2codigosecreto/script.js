@@ -24,44 +24,38 @@ function getCodeFromPage() {
 buttonCheck.addEventListener("click", getCodeFromPage);
 
 var section = document.getElementById("result");
-/*
+
 function generateDivs() {
 
-    let parentDiv = document.createElement("div"); //.classList.add('rowResult', 'w100', 'flex', 'wrap');
-
-    for (let i = 0; i <= maxIntento; i++) {
-        
-        section[i].appendChild(parentDiv);
-        
-        for (let j = 0; j <= 5; j++) {
-            
-            let childDiv = document.createElement("div").classList.add('w20');
-            parentDiv[i].appendChild(childDiv);
-        }
-    }
+    // ahora hay que extrapolarlo a un bucle
 }
 
 generateDivs();
-*/
+
 // Aquí se itera con la constante maxIntento
 
 function play() {
 
 }
 
-let parentDiv = document.createElement('div'); //.classList.add('rowResult', 'w100', 'flex', 'wrap');
-parentDiv.innerHTML = "parentDiv";
+// pruebas para construir las tablas de divs
+
+let grandpaDiv = document.createElement("div");
+grandpaDiv.setAttribute("class", "rowResult w100 flex wrap");
+
+console.log("grandpaDiv: " + grandpaDiv);
+
+let parentDiv = document.createElement("div"); 
+parentDiv.setAttribute("class", "w20");
 
 console.log("parentDiv: " + parentDiv);
 
-let childDiv = document.createElement('div'); //.classList.add('w20');
-childDiv.innerHTML = "childDiv"
+let childDiv = document.createElement("div");
+childDiv.setAttribute("class", "celResult flex");
 
 console.log("childDiv: " + childDiv);
 
-section.appendChild(parentDiv);
- 
-var el = childDiv;
-el.innerHTML = 'a';
+grandpaDiv.appendChild(parentDiv);
+parentDiv.appendChild(childDiv);
 
-parentDiv.appendChild(el);
+section.appendChild(grandpaDiv);
