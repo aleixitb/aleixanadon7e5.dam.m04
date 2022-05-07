@@ -16,6 +16,8 @@ function generateCode() {
 
 generateCode();
 
+document.getElementById("secretCode").innerHTML = secretCode;
+
 const buttonCheck = document.getElementById('check');
 
 function getCodeFromPage() {
@@ -37,21 +39,19 @@ var section = document.getElementById("result");
 
 function generateDivs(webCodeToArray, numbers) {
 
-    var grandpaDiv = document.createElement("div");
+    let grandpaDiv = document.createElement("div");
     grandpaDiv.setAttribute("class", "rowResult w100 flex wrap");
-
-    console.log(Object(numbers));
+    
+    console.log(numbers)
 
     for (let i = 0; i < codeLength; i++) {
 
-        var parentDiv = document.createElement("div"); 
+        let parentDiv = document.createElement("div"); 
         parentDiv.setAttribute("class", "w20");
 
-        var childDiv = document.createElement("div");
+        let childDiv = document.createElement("div");
 
-        var a = Object.keys(numbers[i]);
-
-        childDiv.setAttribute("class", `celResult flex ${a}`);
+        childDiv.setAttribute("class", `celResult flex ${numbers[i].position}`);
     
         childDiv.innerHTML = webCodeToArray[i];
 
@@ -64,27 +64,42 @@ function generateDivs(webCodeToArray, numbers) {
 
 function check(webCode) {
 
-    // o arreglo el map o hago un array de objetos como {rightposition: número}
+    let list = [];
 
-    let numbers = webCode.map((i, j) => {
-
-        if (secretCode[i] == webCode[j] && i == j) {
-
-            return {rightPosition: webCode[i]}
+    secretCode.forEach((i) => {
         
-        } else if (secretCode[i] == webCode[j] && i != j) {
+        webCode.forEach((j) => {
 
-            return {badPosition: webCode[j]}
-        
-        } else if (!(secretCode.includes(webCode[j]))) {
+            if (secretCode[i] == webCode[j] && i == j) {
+                list.push(
+                    {
+                    position: "rightPosition",
+                    number: webCode[j]
+                    }
+                )
 
-            return {wrong: webCode[j]}
-        }
-    });
+            } else if (secretCode[i] == webCode[j] && i != j) {
 
-    console.log("check: " + Object.keys(numbers));
+                list.push(
+                    {
+                    position: "badPosition",
+                    number: webCode[j]
+                    }
+                )
 
-    return numbers
+            } else if (!(webCode.includes(i))) {
+
+                list.push(
+                    {
+                    position: "wrong", 
+                    number: webCode[j]
+                    }
+                )
+            }
+        })
+    })
+
+    return list
 }
 
 // Aquí se itera con la constante maxIntento
@@ -92,9 +107,6 @@ function check(webCode) {
 function play() {
 
     let webCode = getCodeFromPage();
-    let numbers = check(webCode);
-    console.log("play: " + Object.keys(numbers));
-    generateDivs(webCode, numbers);
-    console.log(`webCode: ${webCode}`);
-    
+    let checkCode = check(webCode);
+    generateDivs(webCode, checkCode);
 }
