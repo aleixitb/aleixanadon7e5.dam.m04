@@ -35,18 +35,23 @@ buttonCheck.addEventListener("click", play);
 
 var section = document.getElementById("result");
 
-function generateDivs(webCodeToArray) {
+function generateDivs(webCodeToArray, numbers) {
 
-    let grandpaDiv = document.createElement("div");
+    var grandpaDiv = document.createElement("div");
     grandpaDiv.setAttribute("class", "rowResult w100 flex wrap");
+
+    console.log(Object(numbers));
 
     for (let i = 0; i < codeLength; i++) {
 
-        let parentDiv = document.createElement("div"); 
+        var parentDiv = document.createElement("div"); 
         parentDiv.setAttribute("class", "w20");
 
-        let childDiv = document.createElement("div");
-        childDiv.setAttribute("class", "celResult flex");
+        var childDiv = document.createElement("div");
+
+        var a = Object.keys(numbers[i]);
+
+        childDiv.setAttribute("class", `celResult flex ${a}`);
     
         childDiv.innerHTML = webCodeToArray[i];
 
@@ -59,20 +64,27 @@ function generateDivs(webCodeToArray) {
 
 function check(webCode) {
 
-    for (let i = 0; i < secretCode.length; i++) {
+    // o arreglo el map o hago un array de objetos como {rightposition: número}
 
-        for (let j = 0; j < webCode.length; j++) {
+    let numbers = webCode.map((i, j) => {
 
-            if (secretCode[i] == webCode[j] && i == j) {
+        if (secretCode[i] == webCode[j] && i == j) {
 
-                console.log("rightPosition: " + webCode[j]);
-            
-            } else if (secretCode[i] == webCode[j] && i != j) {
+            return {rightPosition: webCode[i]}
+        
+        } else if (secretCode[i] == webCode[j] && i != j) {
 
-                console.log("badPosition: " + webCode[j]);
-            }
+            return {badPosition: webCode[j]}
+        
+        } else if (!(secretCode.includes(webCode[j]))) {
+
+            return {wrong: webCode[j]}
         }
-    }
+    });
+
+    console.log("check: " + Object.keys(numbers));
+
+    return numbers
 }
 
 // Aquí se itera con la constante maxIntento
@@ -80,7 +92,9 @@ function check(webCode) {
 function play() {
 
     let webCode = getCodeFromPage();
-    generateDivs(webCode);
+    let numbers = check(webCode);
+    console.log("play: " + Object.keys(numbers));
+    generateDivs(webCode, numbers);
     console.log(`webCode: ${webCode}`);
-    check(webCode);
+    
 }

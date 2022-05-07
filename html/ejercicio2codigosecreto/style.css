@@ -110,3 +110,15 @@ button:hover, button:focus{
     font-size: 2.25em;
     align-items: center;
 }
+
+.rightPosition {
+    background-color: green;
+}
+
+.badPosition {
+    background-color: yellow;
+}
+
+.wrong {
+    background-color: red;
+}
