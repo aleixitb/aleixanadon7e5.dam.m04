@@ -9,8 +9,6 @@ function generateCode() {
         secret[i] = Math.floor((Math.random() * 10));
     }
 
-    console.log(`secret: ${secret}`);
-
     return secret;
 }
 
@@ -41,8 +39,6 @@ function generateDivs(guess) {
 
     let grandpaDiv = document.createElement("div");
     grandpaDiv.setAttribute("class", "rowResult w100 flex wrap");
-    
-    console.log("webCode: " + guess);
 
     for (let i = 0; i < codeLength; i++) {
 
